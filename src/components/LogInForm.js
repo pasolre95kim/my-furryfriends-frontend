@@ -4,11 +4,10 @@ import { Button, Divider, Form, Grid, Segment } from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 import background from '../imgs/backgroundpic.png'
 
-
 const logInURL="http://localhost:3000/login"
 
 class LogInForm extends Component {
-
+  
   state={
     username: "",
     password: ""

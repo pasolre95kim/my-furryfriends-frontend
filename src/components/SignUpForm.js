@@ -7,7 +7,6 @@ import "mdbreact/dist/css/mdb.css";
 import 'react-inputs-validation/lib/react-inputs-validation.min.css';
 import background from '../imgs/backgroundpic.png'
 
-
 const usersURL = "http://localhost:3000/users"
 
 class SignUpForm extends Component {

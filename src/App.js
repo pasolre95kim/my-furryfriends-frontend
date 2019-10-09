@@ -33,7 +33,11 @@ class App extends Component {
     };
   }
 
-  //fetching all list of animals & all articles when DOM loads
+  /**
+   * @function    componentDidMount()
+   * @description Fetch all animals & articles from when DOM loads. Stores animals in State
+   * @returns     [object]
+   */
   componentDidMount() {
     this.checkForToken();
 
@@ -47,6 +51,7 @@ class App extends Component {
     this.fetchArticles();
   }
 
+  // fetch articles from API and store JSON object in state
   fetchArticles = () => {
     fetch(articlesURL)
       .then(resp => resp.json())
@@ -57,15 +62,18 @@ class App extends Component {
       });
   };
 
-  //get token & validate setToken
+  /**
+   * @function     checkForToken()
+   * @description  Retrieves current User & validates User's token from localStorage.
+   *               If token validated, sets token and authorizes current User.
+   * @returns     [Boolean]
+   */
   checkForToken = () => {
     let token = localStorage.getItem("token");
     if (token) {
       fetch(profileURL, { headers: { Authorization: `Bearer ${token}` } })
         .then(res => res.json())
         .then(data => {
-          console.log(data.user);
-
           if (!data.error) {
             localStorage.setItem("user", JSON.stringify(data.user));
             this.setState({
@@ -82,40 +90,52 @@ class App extends Component {
     }
   };
 
-  //ADDING ANOTHER ADOPTION
+  /**
+   *  adding animal to [adoptedAnimals] array
+   */
   addAnimal = animal => {
     this.setState({
       adoptedAnimals: [...this.state.adoptedAnimals, animal]
     });
   };
 
-  //ADDING FROM NEW ANIMAL FORM
+  /**
+   *  Adding new animal from `New Animal` form
+   */
   addNewAnimal = animal => {
     this.setState({
       allAnimals: [...this.state.allAnimals, animal]
     });
   };
 
-  //DELETING FROM ADOPTED ANIMALS FOR USERS
+  /**
+   * @description  Deleting animal from [adoptedAnimals] array  
+   * @param       `newArray` updated list adopted animals
+   */ 
   deleteAnimal = newArray => {
     this.setState({
       adoptedAnimals: newArray
     });
   };
 
-  //DELETING FROM ALL ANIMALS
+  /**
+   * @description  Deleting animal from [allAnimals] array  
+   * @param       `newArray` updated list all animals
+   */   
   deleteFromAll = newArray => {
     this.setState({
       allAnimals: newArray
     });
   };
 
+  // Sets the current animal
   setCurrentAnimal = animal => {
     this.setState({
       currentAnimal: animal
     });
   };
 
+  // updates current user's adoption details
   updateCurrentUser = (user, adoptions) => {
     if (user.admin === true) {
       this.setState({
@@ -132,13 +152,14 @@ class App extends Component {
     }
   };
 
-  //LOGOUT METHOD
+  // log out current user
   logOut = event => {
     alert("You have been signed out");
     localStorage.removeItem(`token`);
     this.setState({ currentUser: null });
   };
 
+  // event handler for search bar
   onSearchHandler = event => {
     event.preventDefault();
     this.setState({ searchTerm: event.target.value });

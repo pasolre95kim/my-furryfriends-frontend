@@ -3,8 +3,6 @@ import { Card, Button, Icon, Image } from 'semantic-ui-react'
 import AdoptionForm from './AdoptionForm'
 import {Link} from 'react-router-dom'
 
-
-
 const AnimalCard= (props) => {
 
   const adoptionsURL = "http://localhost:3000/adoptions"
@@ -12,7 +10,6 @@ const AnimalCard= (props) => {
 
 //delete call to backend & deleting from front in ADOPTED
   const handleClick = (animal) => {
-
     let index = props.adoptedAnimals.findIndex(deleteAnimal => deleteAnimal.animal.id === animal.id)
     let newArray = [...props.adoptedAnimals]
     newArray.splice(index,1)

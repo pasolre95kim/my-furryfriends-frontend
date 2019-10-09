@@ -14,10 +14,9 @@ const AnimalDetails = (props) => {
     {props.animal.name}
     </h2>
 
-
     <img class="ui centered circular medium image"src={props.animal.image} />
 
-      <br />
+    <br />
     <Container text>
       <h4>Breed: {props.animal.breed}</h4>
       <p>Age: {props.animal.age}</p>
