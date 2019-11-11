@@ -6,7 +6,6 @@ import "mdbreact/dist/css/mdb.css";
 import {Redirect, Link} from 'react-router-dom'
 import {Header, Container, Icon, Button } from 'semantic-ui-react'
 
-
 const Home = (props) => {
 
   return (

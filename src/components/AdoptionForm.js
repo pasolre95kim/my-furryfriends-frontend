@@ -2,8 +2,8 @@ import React, { Component, Fragment } from 'react'
 import { Card, Button, Menu, Icon, Modal, Image, Form, Input, Dropdown } from 'semantic-ui-react'
 
 
-const adoptionsURL = "http://localhost:3000/adoptions"
-const animalsURL = "http://localhost:3000/animals"
+const ADOPTIONS_URL = "http://localhost:3000/adoptions"
+const ANIMALS_URL = "http://localhost:3000/animals"
 
 class AdoptionForm extends Component {
   constructor(props){
@@ -58,7 +58,7 @@ class AdoptionForm extends Component {
         health: this.props.animal.health
       }
       console.log(data)
-      fetch(adoptionsURL, {
+      fetch(ADOPTIONS_URL, {
         method: "POST",
         headers: {
           "Content-Type" : "application/json",

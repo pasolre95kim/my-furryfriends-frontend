@@ -7,8 +7,7 @@ import "mdbreact/dist/css/mdb.css";
 import 'react-inputs-validation/lib/react-inputs-validation.min.css';
 import background from '../imgs/backgroundpic.png'
 
-
-const usersURL = "http://localhost:3000/users"
+const USERS_URL = "http://localhost:3000/users"
 
 class SignUpForm extends Component {
 
@@ -19,7 +18,7 @@ class SignUpForm extends Component {
   }
 
   postUser = (data) => {
-    fetch(usersURL, {
+    fetch(USERS_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

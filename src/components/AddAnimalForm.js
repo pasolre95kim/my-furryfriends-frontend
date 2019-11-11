@@ -4,14 +4,7 @@ import { MDBContainer, MDBRow, MDBCol, MDBBtn } from 'mdbreact';
 import background from '../imgs/backgroundpic.png'
 import {Link} from 'react-router-dom'
 
-
-//Check how to add backgroun image!
-// <img src="https://www.pixelstalk.net/wp-content/uploads/2016/07/Cute-Baby-Animal-Background-Download-Free.jpg" />
-
-
-// <img className="add" src="http://2.bp.blogspot.com/-EZPlNgf_oDM/Tp-31Pv8d8I/AAAAAAAAAhQ/N2FHNHIDj04/s1600/Cute-Dog-Wallpaper.jpg" />
-
-const animalsURL = "http://localhost:3000/animals"
+const ANIMALS_URL = "http://localhost:3000/animals"
 
 class AddAnimalForm extends Component {
   constructor(props){
@@ -37,8 +30,8 @@ class AddAnimalForm extends Component {
   }
 
   handleSubmit = event => {
-
     event.preventDefault()
+
     let data = {
       name: this.state.name,
       age: this.state.age,
@@ -50,7 +43,8 @@ class AddAnimalForm extends Component {
       preferredHome: this.state.preferredHome,
       species: this.state.species
     }
-    fetch(animalsURL, {
+
+    fetch(ANIMALS_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -212,9 +206,8 @@ class AddAnimalForm extends Component {
       <br />
       <br />
       </Fragment>
-
     );
   };
 }
 
-  export default AddAnimalForm;
+export default AddAnimalForm;
