@@ -33,10 +33,9 @@ class App extends Component {
     };
   }
 
-  /**
-   * @function    componentDidMount()
-   * @description Fetch all animals & articles from when DOM loads. Stores animals in State
-   * @returns     [object]
+  /*
+componentDidMount()
+Fetch all animals & articles from when DOM loads. Stores animals in State
    */
   componentDidMount() {
     this.checkForToken();
@@ -62,12 +61,10 @@ class App extends Component {
       });
   };
 
-  /**
-   * @function     checkForToken()
-   * @description  Retrieves current User & validates User's token from localStorage.
-   *               If token validated, sets token and authorizes current User.
-   * @returns     [Boolean]
-   */
+  /* function checkForToken()  Retrieves current User & validates User's token from localStorage.
+   If token validated, sets token and authorizes current User.
+returns [Boolean]
+ */
   checkForToken = () => {
     let token = localStorage.getItem("token");
     if (token) {
@@ -90,7 +87,7 @@ class App extends Component {
     }
   };
 
-  /**
+  /*
    *  adding animal to [adoptedAnimals] array
    */
   addAnimal = animal => {
@@ -99,7 +96,7 @@ class App extends Component {
     });
   };
 
-  /**
+  /*
    *  Adding new animal from `New Animal` form
    */
   addNewAnimal = animal => {
@@ -108,20 +105,20 @@ class App extends Component {
     });
   };
 
-  /**
-   * @description  Deleting animal from [adoptedAnimals] array  
-   * @param       `newArray` updated list adopted animals
-   */ 
+  /*
+Deleting animal from [adoptedAnimals] array
+`newArray` updated list adopted animals
+   */
   deleteAnimal = newArray => {
     this.setState({
       adoptedAnimals: newArray
     });
   };
 
-  /**
-   * @description  Deleting animal from [allAnimals] array  
-   * @param       `newArray` updated list all animals
-   */   
+  /*
+ Deleting animal from [allAnimals] array
+`newArray` updated list all animals
+   */
   deleteFromAll = newArray => {
     this.setState({
       allAnimals: newArray
